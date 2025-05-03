@@ -1,10 +1,12 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # ✅ Import CORS
 import random
 import json
 import re
 import requests
 
 app = Flask(__name__)
+CORS(app)  # ✅ Enable CORS for all routes
 
 # Load intents
 with open('intents.json') as file:
@@ -58,5 +60,3 @@ def chat():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
-
-
